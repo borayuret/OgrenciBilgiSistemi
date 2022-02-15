@@ -61,6 +61,13 @@ public class OgrenciBilgiSistemiApplication implements CommandLineRunner {
         ogr2.getDolaplar().add(dolap3);
         ogr3.getDolaplar().add(dolap4);
 
+        // unidirectional'dan bidirectional'a çevirirsek,
+        // objeleri de çift taraflı bağlamak zorundayız.
+        dolap1.setOgrenci(ogr1);
+        dolap2.setOgrenci(ogr1);
+        dolap3.setOgrenci(ogr2);
+        dolap4.setOgrenci(ogr3);
+
 
         ogrenciRepository.save(ogr1);
         ogrenciRepository.save(ogr2);

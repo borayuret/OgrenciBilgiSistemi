@@ -5,14 +5,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-public class Ogrenci {
+public class Ogrenci_tekyonlu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +21,8 @@ public class Ogrenci {
     private String tur; // TM - MF
     private double harc;
 
-    @OneToMany(mappedBy = "ogrenci", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ogr_no", referencedColumnName = "id")
     private List<Dolap> dolaplar = new ArrayList<>();
 
     public void setHarc(double harc) {
